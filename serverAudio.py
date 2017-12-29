@@ -9,7 +9,7 @@ FORMAT = pa.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 4
-WAVE_OUTPUT_FILENAME = "server_output.wav"
+WAVE_OUTPUT_FILENAME = "server_output"
 WIDTH = 2
 frames = []
 
@@ -41,24 +41,27 @@ try:
         # print(data)
         frames.append(data)
 except KeyboardInterrupt:
-    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+    wf = wave.open('{f_n}-from-{ip}.wav'.format(f_n=WAVE_OUTPUT_FILENAME, ip=addr[0]), 'wb')
     wf.setnchannels(CHANNELS)
     wf.setsampwidth(p.get_sample_size(FORMAT))
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
     wf.close()
+    print("File written out to: {f_n}-from-{ip}.wav".format(f_n=WAVE_OUTPUT_FILENAME, ip=addr[0]))
+    print(addr)
 
     stream.stop_stream()
     stream.close()
     p.terminate()
     conn.close()
 
-wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+wf = wave.open('{f_n}-from-{ip}.wav'.format(f_n=WAVE_OUTPUT_FILENAME, ip=addr[0]), 'wb')
 wf.setnchannels(CHANNELS)
 wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)
 wf.writeframes(b''.join(frames))
 wf.close()
+print("File written out to: {f_n}-from-{ip}.wav".format(f_n=WAVE_OUTPUT_FILENAME, ip=addr[0]))
 
 stream.stop_stream()
 stream.close()

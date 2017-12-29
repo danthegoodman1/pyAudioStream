@@ -23,7 +23,7 @@ stream = p.open(format=FORMAT,
                 input=True,
                 frames_per_buffer=CHUNK)
 
-print("*recording")
+#print("*recording")
 
 frames = []
 
@@ -32,11 +32,11 @@ for i in range(0, int(RATE/CHUNK*RECORD_SECONDS)):
  frames.append(data)
  s.sendall(data)
 
-print("*done recording")
+#print("*done recording")
 
 stream.stop_stream()
 stream.close()
 p.terminate()
 s.close()
 
-print("*closed")
+#print("*closed")
