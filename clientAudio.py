@@ -7,7 +7,7 @@ CHUNK = 1024
 FORMAT = pa.paInt16
 CHANNELS = 1
 RATE = 44100
-RECORD_SECONDS = 10
+RECORD_SECONDS = 10 # This takes priority over the serverAudio
 
 HOST = '127.0.0.1'    # The remote host
 PORT = 50007              # The same port as used by the server
