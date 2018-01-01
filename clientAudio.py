@@ -1,6 +1,9 @@
 import socket
 import pyaudio as pa
 import wave
+from sys import argv
+
+script, argv1, argv2 = argv
 
 #record
 CHUNK = 1024
@@ -9,8 +12,8 @@ CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 10 # This takes priority over the serverAudio
 
-HOST = '127.0.0.1'    # The remote host
-PORT = 50007              # The same port as used by the server
+HOST = argv1    # The remote host
+PORT = argv2              # The same port as used by the server
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))

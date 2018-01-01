@@ -12,4 +12,17 @@ _location: `/usr/local/Cellar/portaudio/19.6.0/`_
 
     pip install pyaudio
 
+### Server:
+
+##### Example Usage:
+**Server**:
+
+    python3 serverAudio.py IP PORT
+
+**Client**
+
+    python3 clientAudio.py IP PORT
+
+replace `IP` and `PORT` with their respective values
+
 ##### Will make a setup file for this to automate silently

@@ -4,6 +4,9 @@ import pyaudio as pa
 import wave
 import time
 from time import gmtime, strftime
+from sys import argv
+
+script, argv1, argv2 = argv
 
 CHUNK = 1024
 FORMAT = pa.paInt16
@@ -22,8 +25,8 @@ stream = p.open(format=p.get_format_from_width(WIDTH),
                 frames_per_buffer=CHUNK)
 
 
-HOST = '127.0.0.1'                 # Symbolic name meaning all available interfaces
-PORT = 50007              # Arbitrary non-privileged port
+HOST = argv1                 # Symbolic name meaning all available interfaces
+PORT = argv2              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
