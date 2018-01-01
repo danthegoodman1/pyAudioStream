@@ -25,4 +25,6 @@ _location: `/usr/local/Cellar/portaudio/19.6.0/`_
 
 replace `IP` and `PORT` with their respective values
 
+This should also work for Python 2, but the print statements and encoding/decoding might need to be changed.
+
 ##### Will make a setup file for this to automate silently
