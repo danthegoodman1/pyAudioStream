@@ -16,7 +16,7 @@ HOST = argv1    # The remote host
 PORT = argv2              # The same port as used by the server
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
+s.connect((HOST, int(PORT)))
 
 p = pa.PyAudio()
 

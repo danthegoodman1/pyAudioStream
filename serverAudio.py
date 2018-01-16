@@ -1,4 +1,4 @@
-s# Echo server program
+# Echo server program
 import socket
 import pyaudio as pa
 import wave
@@ -28,7 +28,7 @@ stream = p.open(format=p.get_format_from_width(WIDTH),
 HOST = argv1                 # Symbolic name meaning all available interfaces
 PORT = argv2              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))
+s.bind((HOST, int(PORT)))
 s.listen(1)
 conn, addr = s.accept()
 print('Connected by', addr)
